@@ -1,5 +1,47 @@
 #header {
-    padding: 10px;
+    padding: 30px;
     text-align: right;
-    background-color: lightblue;
+    height: 100px;
+    background-color: #2d394b;
+    position: sticky;
+    top: 0;
+    z-index: 999;
 }
+.space 
+{
+    margin-left: 20px;
+}
+
+/* Navbar-CSS */
+/* ======================= */
+
+.bg-body-tertiary {
+    --bs-bg-opacity: 1;
+    /* background-color: #212529 !important; */
+        background-color: black !important;
+}
+
+#basic-nav-dropdown{
+    color: blue;
+    font-size: 20px;
+}
+
+/* Our Trending Product */
+/* =========================== */
+.btn {
+    background-color: rgb(220, 248, 10);
+    
+}
+
+/* Footer-CSS */
+/* ======================= */
+#footer
+{
+    padding: 100px;
+    background-color: rgb(71, 69, 69);
+    color: white;
+}
+
+
+
+

@@ -1,0 +1,138 @@
+/* #adminHeader {
+    color: brown;
+    display: flex;
+    justify-content: space-between;
+    text-transform: uppercase;
+}
+#adminData {
+    height: 200px;
+    background-color: lightblue;
+}
+
+#adminMenu {
+    width: 20%;
+    background-color: black;
+    color: white;
+}
+#adminContent{
+    padding-left: 30px;
+    width: 80%;
+}
+
+.menucolor {
+    color: whitesmoke;
+
+} */
+
+
+
+
+/* AdminDashboard.css */
+
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  body {
+    background-color: #f4f7fc;
+    color: #333;
+  }
+  
+  /* Admin Header */
+  #adminHeader {
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  #adminHeader h4 {
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  /* Main Container */
+  #adminContainer {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: row;
+  }
+  
+  /* Admin Menu */
+  #adminMenu {
+    background-color: #343a40;
+    color: white;
+    width: 220px;
+    padding-top: 20px;
+  }
+  
+  .menuTitle {
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+  }
+  
+  .menuLink {
+    display: block;
+    color: #b8c6d3;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 16px;
+    border-left: 4px solid transparent;
+    transition: 0.3s;
+  }
+  
+  .menuLink:hover {
+    background-color: #007bff;
+    color: white;
+    border-left: 4px solid #007bff;
+  }
+  
+  .menuLink.active {
+    background-color: #0056b3;
+    color: white;
+    border-left: 4px solid #0056b3;
+  }
+  
+  /* Admin Content */
+  #adminContent {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: white;
+    border-left: 1px solid #ddd;
+  }
+  
+  #adminContent h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    #adminContainer {
+      flex-direction: column;
+    }
+  
+    #adminMenu {
+      width: 100%;
+      padding: 10px;
+    }
+  
+    #adminContent {
+      padding: 15px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    #adminHeader h4 {
+      font-size: 20px;
+    }
+  }
+  
