@@ -1,66 +1,114 @@
-
-// import axios from 'axios';
+import axios from 'axios';
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+
 const InsertProduct = () => {
+  const [input, setInput] = useState({});
+  const [myimage, setMyimage] = useState();
 
-    const [input, setInput]= useState({});
+  const handleInput = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    setInput((values) => ({ ...values, [name]: value }));
+  };
 
-    const [myimage, setMyimage]= useState();
-    
-    const handleInput=(e)=>{
-        let name=e.target.name;
-        let value=e.target.value;
-        setInput(values=>({...values, [name]:value}));
-        console.log(input);
+  const handleImage = (e) => {
+    setMyimage(e.target.files[0]);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Check if an image has been selected
+    if (!myimage) {
+      alert('Please upload an image.');
+      return;
     }
 
-    const handleImage=(e)=>{
-        setMyimage(e.target.files[0]);
-        console.log(myimage);
-    }
+    // Prepare the form data for image upload
+    const formData = new FormData();
+    formData.append('file', myimage);
+    formData.append('upload_preset', 'First_Preset'); // Your upload preset
+    formData.append('cloud_name', 'dzbnmvkoz'); // Your cloud name
 
-    const handleSubmit=async(e)=>{
-      e.preventDefault();
+    try {
+      // Upload the image to Cloudinary
+      const imageResponse = await axios.post('https://api.cloudinary.com/v1_1/dzbnmvkoz/image/upload', formData);
+
+      // After uploading the image, send the product data
+      const productData = { ...input, image: imageResponse.data.url };
+
+      // Send the product data to your API endpoint
+      const api1 = 'http://localhost:9000/product/productsave';
+      await axios.post(api1, productData);
+
+      alert('Product saved successfully!');
+    } catch (error) {
+      console.error('Error uploading image or saving product:', error);
+      alert('There was an error. Please try again.');
     }
+  };
+
   return (
-   <>
-   <center>
-   <h5>Welcome to Insert Product Page!!</h5>
-   <Form style={{width:'300px'}}>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Enter Product name</Form.Label>
-        <Form.Control type="text" name="name" 
-        value={input.name} onChange={handleInput}/>
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Description</Form.Label>
-        <Form.Control type="text" name="description" 
-         value={input.description} onChange={handleInput}/>
-      </Form.Group>
-      <Form.Label> Select Category</Form.Label>
-      <Form.Select aria-label="Default select example" name="category" 
-      value={input.category} onChange={handleInput} >
-      <option value="Men">Men</option>
-      <option value="Women">Women</option>
-      <option value="Kids">Kids</option>
-      </Form.Select>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Enter Price</Form.Label>
-        <Form.Control type="text" name="price" value={input.price} onChange={handleInput} />
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Upload Image</Form.Label>
-        <Form.Control type="file" name="file" onChange={handleImage}/>
-      </Form.Group>
-      <Button variant="primary" type="submit" onClick={handleSubmit}>
-        Submit
-      </Button>
-    </Form>
-   </center>
-   </>
-  )
-}
+    <>
+      <center>
+        <h5>Welcome to Insert Product Page!</h5>
+        <Form style={{ width: '300px' }} onSubmit={handleSubmit}>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Enter Product name</Form.Label>
+            <Form.Control
+              type="text"
+              name="name"
+              value={input.name}
+              onChange={handleInput}
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Description</Form.Label>
+            <Form.Control
+              type="text"
+              name="description"
+              value={input.description}
+              onChange={handleInput}
+            />
+          </Form.Group>
+          <Form.Label>Select Product</Form.Label>
+          <Form.Select
+            aria-label="Default select example"
+            name="product"
+            value={input.product}
+            onChange={handleInput}
+          >
+            <option value="laptop">Laptop</option>
+            <option value="computer">Computer</option>
+            <option value="mobile">Mobile</option>
+            <option value="all">All</option>
+          </Form.Select>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Enter Price</Form.Label>
+            <Form.Control
+              type="text"
+              name="price"
+              value={input.price}
+              onChange={handleInput}
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Upload Image</Form.Label>
+            <Form.Control
+              type="file"
+              name="file"
+              onChange={handleImage}
+            />
+          </Form.Group>
+          <Button variant="primary" type="submit">
+            Submit
+          </Button>
+        </Form>
+      </center>
+    </>
+  );
+};
 
-export default InsertProduct
+export default InsertProduct;

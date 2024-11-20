@@ -4,6 +4,7 @@ const mongoose=require("mongoose");
 const cors=require("cors");
 const bodyParser = require('body-parser');
 const adminRoute=require("./routes/adminRoute")
+const productRoute=require("./routes/productRoute")
 
 require("dotenv").config();
 const PORT=process.env.PORT || 3000
@@ -14,6 +15,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
 app.use("/adminuser",adminRoute)
+app.use("/product",productRoute)
 
 mongoose.connect(process.env.DBCON).then(()=>{
     console.log("Connected to MongoDB !!!")
