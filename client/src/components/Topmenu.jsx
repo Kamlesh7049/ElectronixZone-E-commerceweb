@@ -1,43 +1,49 @@
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
+import { Link } from "react-router-dom";
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import { Link } from 'react-router-dom';
 
 const Topmenu = () => {
   return (
-    <>
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar bg="dark" data-bs-theme="dark">
       <Container>
-        <Navbar.Brand href="#home" style={{ color: 'white', fontWeight:"800", fontSize:"25px",  letterSpacing: '2px',fontStyle:"italic"}}>ElectronixZone</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link as={Link} to="home"style={{ color: 'blue',fontSize:'20px' }}>Home</Nav.Link>
-            <Nav.Link as={Link} to="shop" style={{ color: 'blue',fontSize:'20px' }}>Shop</Nav.Link>
-            <NavDropdown title="Product" id="basic-nav-dropdown" >
-              <NavDropdown.Item href="#action/3.1">Leptop</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-               Computer
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Mobile</NavDropdown.Item>
-              {/* <NavDropdown.Divider /> */}
-              <NavDropdown.Item href="#action/3.4">
-                All
-              </NavDropdown.Item>
-            </NavDropdown>
-            <Nav.Link as={Link} to="cart" style={{ color: 'blue',fontSize:'20px' }}>Cart</Nav.Link>
-            <Nav.Link as={Link} to="Blog" style={{ color: 'blue', fontSize:'20px'}}>Blogs</Nav.Link>
-            <Nav.Link as={Link} to="contact" style={{ color: 'blue',fontSize:'20px' }}>Contact Us</Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
+        <Navbar.Brand
+          href="#home"
+          style={{
+            color: "white",
+            fontWeight: "1000",
+            letterSpacing: "2px",
+            fontStyle: "italic",
+          }}
+        >
+          ElectronixZone
+        </Navbar.Brand>
+        <Nav className="me-auto" style={{ fontSize: "20px" }}>
+          <Nav.Link as={Link} to="/home"> Home </Nav.Link>
+          <Nav.Link as={Link} to="/shop"> Shop </Nav.Link>
+
+          {/* Products Dropdown Menu */}
+          <NavDropdown title="Products" id="basic-nav-dropdown">
+            <NavDropdown.Item as={Link} to="/products/leptop">Leptop</NavDropdown.Item>
+            <NavDropdown.Item as={Link} to="/products/mobile">Mobile</NavDropdown.Item>
+            <NavDropdown.Item as={Link} to="/products/computer">Computer</NavDropdown.Item>
+            <NavDropdown.Item as={Link} to="/products/headphone">Headphone</NavDropdown.Item>
+            <NavDropdown.Item as={Link} to="/products/watch">Watch</NavDropdown.Item>
+            <NavDropdown.Item as={Link} to="/products/airbuds">Airbuds</NavDropdown.Item>
+            <NavDropdown.Item as={Link} to="/products/tv">TV</NavDropdown.Item>
+            <NavDropdown.Item as={Link} to="/products/cctv">CCTV</NavDropdown.Item>
+            <NavDropdown.Item as={Link} to="/products/ac">AC</NavDropdown.Item>
+            <NavDropdown.Item as={Link} to="/products/all">All</NavDropdown.Item>
+          </NavDropdown>
+
+          <Nav.Link as={Link} to="/cart"> Cart </Nav.Link>
+          <Nav.Link as={Link} to="/blog">Blogs</Nav.Link>
+          <Nav.Link as={Link} to="/contact"> Contact us </Nav.Link>
+        </Nav>
       </Container>
     </Navbar>
+  );
+};
 
-
-
-    </>
-  )
-}
-
-export default Topmenu
+export default Topmenu;

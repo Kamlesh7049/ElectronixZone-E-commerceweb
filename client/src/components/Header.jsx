@@ -1,6 +1,9 @@
-import { FaShoppingCart } from "react-icons/fa";
-import { RiAdminFill } from "react-icons/ri";
-import { FaSearch } from "react-icons/fa";
+// import { FaShoppingCart } from "react-icons/fa";
+// import { RiAdminFill } from "react-icons/ri";
+// import { FaSearch } from "react-icons/fa";
+import  "../components/Header.css";
+import { FaShoppingCart, FaSearch } from "react-icons/fa";
+import { GrUserAdmin } from "react-icons/gr";
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { useState } from "react";
@@ -61,7 +64,7 @@ const Header = () => {
       <div id="header">
         <FaShoppingCart />
         <a href="#" onClick={handleShow}>
-          <RiAdminFill className="space" />
+          <GrUserAdmin className="space" />
         </a>
         <FaSearch className="space" />
       </div>

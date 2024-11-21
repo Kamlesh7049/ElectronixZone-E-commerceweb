@@ -1,16 +1,16 @@
-#header {
-    padding: 30px;
+/* #header {
+    padding: 20px;
     text-align: right;
-    height: 100px;
+    height: 60px;
     background-color: #2d394b;
     position: sticky;
     top: 0;
     z-index: 999;
-}
-.space 
+} */
+/* .space 
 {
     margin-left: 20px;
-}
+} */
 
 /* Navbar-CSS */
 /* ======================= */
@@ -22,7 +22,7 @@
 }
 
 #basic-nav-dropdown{
-    color: blue;
+    /* color: blue; */
     font-size: 20px;
 }
 
@@ -45,3 +45,15 @@
 
 
 
+/* Home-CSS */
+/* ========================================================== */
+
+#carddata{
+    display: flex;
+    justify-content:space-around;
+    flex-wrap: wrap;
+}
+
+
+/* Header-CSS */
+/* ================================================= */
