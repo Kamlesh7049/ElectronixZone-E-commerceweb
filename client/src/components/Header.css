@@ -11,7 +11,11 @@
     position: sticky;
     top: 0;
     z-index: 999;
-  }
+    
+      /* background: linear-gradient(90deg, #1e1e1e, #000080); Gradient for sporty effect */
+      /* color: white; */
+     
+    }
  
   .space 
 {

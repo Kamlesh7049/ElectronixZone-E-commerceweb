@@ -1,6 +1,3 @@
-// import { FaShoppingCart } from "react-icons/fa";
-// import { RiAdminFill } from "react-icons/ri";
-// import { FaSearch } from "react-icons/fa";
 import  "../components/Header.css";
 import { FaShoppingCart, FaSearch } from "react-icons/fa";
 import { GrUserAdmin } from "react-icons/gr";
@@ -10,6 +7,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { message } from 'antd';
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [username, setUsername] = useState("");
@@ -41,6 +39,12 @@ const Header = () => {
   //     });
   // };
 
+
+  const CardData=useSelector((state)=>state.mycard.card)
+
+
+  const cardLength=CardData.length;
+
   const handleSubmit=()=>{
     let api="http://localhost:9000/adminuser/usercheck";
     axios.post(api,{user:username,password:password}).then((res)=>{
@@ -62,46 +66,70 @@ const Header = () => {
   return (
     <>
       <div id="header">
-        <FaShoppingCart />
+      {cardLength}
+       <a href="#" onClick={()=>{navigate("/carddata")}}>
+       <FaShoppingCart size={20} color="black"/>
+       </a>
+       
         <a href="#" onClick={handleShow}>
-          <GrUserAdmin className="space" />
+          <GrUserAdmin className="space"  size={20} color="black"/>
         </a>
-        <FaSearch className="space" />
+        <FaSearch className="space"  size={20} color="black"/>
       </div>
 
       <Modal show={show} onHide={handleClose} animation={false}>
-        <Modal.Header closeButton>
-          <Modal.Title>Admin Login Area</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          Admin Area for managing your website
-          <br />
-          Enter Admin: 
-          <input
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            placeholder="Enter username"
-          />
-          <br />
-          Enter Password:  
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Enter password"
-          />
-          <br />
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleSubmit}>
-            Login
-          </Button>
-        </Modal.Footer>
-      </Modal>
+  <Modal.Header closeButton>
+    <Modal.Title style={{ fontWeight: 'bold', color: '#343a40' }}>Admin Login Area</Modal.Title>
+  </Modal.Header>
+  <Modal.Body>
+    <p style={{ marginBottom: '15px', color: '#6c757d' }}>
+      Admin Area for managing your website
+    </p>
+    <div className="form-group mb-3">
+      <label htmlFor="admin-username" style={{ fontWeight: '500' }}>Enter Admin:</label>
+      <input
+        type="text"
+        id="admin-username"
+        className="form-control"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+        placeholder="Enter username"
+        style={{ marginTop: '5px' }}
+      />
+    </div>
+    <div className="form-group">
+      <label htmlFor="admin-password" style={{ fontWeight: '500' }}>Enter Password:</label>
+      <input
+        type="password"
+        id="admin-password"
+        className="form-control"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        placeholder="Enter password"
+        style={{ marginTop: '5px' }}
+      />
+    </div>
+  </Modal.Body>
+  <Modal.Footer>
+    <Button variant="secondary" onClick={handleClose} style={{ borderRadius: '5px' }}>
+      Close
+    </Button>
+    <Button
+      variant="primary"
+      onClick={handleSubmit}
+      style={{
+        backgroundColor: '#007bff',
+        borderColor: '#007bff',
+        borderRadius: '5px',
+        padding: '8px 15px',
+        fontWeight: 'bold',
+      }}
+    >
+      Login
+    </Button>
+  </Modal.Footer>
+</Modal>
+
     </>
   );
 };

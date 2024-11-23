@@ -1,0 +1,88 @@
+.Shopbnr {
+    /* background-image: url('../images/shopb1.jpg'); */
+    
+   background-image: url('../images/shopbnr2.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 80px 20px;
+    color: white;
+    text-align: center;
+    /* margin-top: 40px; */
+    border-radius: 10px;
+    width: 97%;
+    height: 300px;
+    /* margin-top: 20px; */
+    align-content: center;
+    /* text-align: center; */
+    margin: auto;
+    margin-bottom: 5px;
+    margin-top: 10px;
+  }
+  
+  .Shopbnr h3, .Shopbnr h2 {
+    margin: 0;
+  }
+  
+  .Shopbnr button {
+    margin-top: 20px;
+    background-color: #ff6347;
+    color: white;
+    font-size: 18px;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .Shopbnr button:hover {
+    background-color: #e55347;
+  }
+  
+  /* Ensure cards are responsive */
+  .product-card {
+    margin-bottom: 20px;
+  }
+  
+
+.Shopbnr1 {
+margin-top: 5px;
+padding: 0px 20px;
+
+}
+
+
+
+
+
+/* Make the carousel responsive for smaller screens (375px) */
+@media (max-width: 375px) {
+  .caro {
+    height: 150px; /* Reduce the height of the image to fit smaller screens */
+    object-fit: cover; /* Ensure the image fills the space without stretching */
+  }
+
+  .carousel-caption {
+    font-size: 12px; /* Reduce the font size for the caption on small screens */
+    bottom: 10px; /* Adjust the position of the caption */
+  }
+
+  .carousel-caption h3 {
+    font-size: 14px; /* Smaller heading size */
+  }
+
+  .carousel-caption p {
+    font-size: 10px; /* Smaller paragraph size */
+  }
+  .Shopbnr1 img {
+    width:100% ;
+    height: 150px;
+  }
+}
+
+  
+
+
+
+
+

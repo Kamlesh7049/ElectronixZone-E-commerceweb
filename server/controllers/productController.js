@@ -20,7 +20,7 @@ const productSave=async(req,res)=>{
 const showProduct =async(req,res)=>{
     const data=await ProductModel.find();
     // console.log(data)
-    // res.send(data);
+    res.send(data);
 }
 
 

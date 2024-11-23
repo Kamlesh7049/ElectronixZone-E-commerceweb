@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { message } from 'antd';
 
 const InsertProduct = () => {
   const [input, setInput] = useState({});
@@ -43,7 +44,18 @@ const InsertProduct = () => {
       const api1 = 'http://localhost:9000/product/productsave';
       await axios.post(api1, productData);
 
-      alert('Product saved successfully!');
+      message.success('Product saved successfully!');
+
+      setInput({
+        name: '',
+        description: '',
+        product:'',
+        price: '',
+       
+    });
+    setMyimage({
+      image:'',
+    })
     } catch (error) {
       console.error('Error uploading image or saving product:', error);
       alert('There was an error. Please try again.');
@@ -80,6 +92,8 @@ const InsertProduct = () => {
             value={input.product}
             onChange={handleInput}
           >
+
+            <option value="">Select a product</option> 
             <option value="laptop">Laptop</option>
             <option value="computer">Computer</option>
             <option value="mobile">Mobile</option>
