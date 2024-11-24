@@ -6,6 +6,11 @@ import InsertProduct from "./admin/InsertProduct";
 import CardData from "./pages/CardData";
 import ProductDetail from "./pages/ProductDeatil";
 import Cart from "./pages/Cart";
+import Leptop from "./pages/Leptop";
+import Mobile from "./pages/Mobile";
+import Search from "./pages/Search";
+import Shop from "./pages/Shop";
+
 // import Header from './components/Header'
 
 const App = () => {
@@ -23,6 +28,10 @@ const App = () => {
             <Route path="carddata" element={<CardData />} />
             <Route path="prodetail/:proid" element={<ProductDetail />} />
             <Route path="cart" element={<Cart />} />
+            <Route path="products/leptop" element={<Leptop/>}/>
+            <Route path="products/mobile" element={<Mobile/>}/>
+            <Route path="search" element={<Search/>}/>
+            <Route path="shop" element={<Shop/>}/>
           </Route>
           
           {/* Admin Routes */}

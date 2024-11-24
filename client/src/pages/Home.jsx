@@ -119,7 +119,7 @@ import shop from "../images/shopbnr1.jpg"
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-import Button from "react-bootstrap/Button";
+import Button from "react-bootstrap/Button";   
 import Card from "react-bootstrap/Card";
 import { useDispatch } from 'react-redux';
 import { addToCard } from '../cardSlice';

@@ -22,9 +22,21 @@ const showProduct =async(req,res)=>{
     // console.log(data)
     res.send(data);
 }
+const productDetail=async(req,res)=>{
+    const Data=await ProductModel.findById(req.body.id);
+    res.send(Data);
+}
+
+const showOneProduct=async(req,res)=>{
+    const {product}=req.query;
+    const data=await ProductModel.find({product:product});
+    res.send(data);
+}
 
 
 module.exports={
     productSave ,
-    showProduct
+    showProduct,
+    productDetail,
+    showOneProduct
 }

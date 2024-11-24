@@ -56,7 +56,7 @@ const Footer = () => {
       </div>
 
       <div style={styles.copyright}>
-        © 2024 - 2025 Zebronics India Pvt. Ltd.® All Rights Reserved.
+        © 2024 - 2025 Electronix@Zone India Pvt. Ltd.® All Rights Reserved.
       </div>
     </footer>
   );
@@ -114,7 +114,7 @@ const styles = {
     borderTop: '1px solid #444',
     paddingTop: '10px',
     fontSize: '12px',
-    textAlign: 'center',
+    // textAlign: 'center',
   },
 
   /* Media Query for Small Screens (375px) */
