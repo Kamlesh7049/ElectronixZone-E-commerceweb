@@ -27,6 +27,7 @@ const Topmenu = () => {
             <Nav className="me-auto">
               <Nav.Link as={Link} to="/home" className="nav-link-custom">Home</Nav.Link>
               <Nav.Link as={Link} to="/shop" className="nav-link-custom">Shop</Nav.Link>
+              <Nav.Link as={Link} to="/search" className="nav-link-custom">Search</Nav.Link>
 
               {/* Products Dropdown Menu */}
               <NavDropdown title="Products" id="basic-nav-dropdown" className="nav-link-custom">

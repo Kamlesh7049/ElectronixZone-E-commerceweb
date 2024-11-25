@@ -33,10 +33,18 @@ const showOneProduct=async(req,res)=>{
     res.send(data);
 }
 
+const searchProduct=async(req,res)=>{
+    let proname=req.query.product;
+    console.log(proname);
+    const Data=await ProductModel.find({"name":{$regex:proname,$options:'i'}})
+    res.send(Data);
+}
+
 
 module.exports={
     productSave ,
     showProduct,
     productDetail,
-    showOneProduct
+    showOneProduct,
+    searchProduct
 }
