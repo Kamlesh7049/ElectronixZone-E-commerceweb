@@ -10,6 +10,8 @@ import Leptop from "./pages/Leptop";
 import Mobile from "./pages/Mobile";
 import Search from "./pages/Search";
 import Shop from "./pages/Shop";
+import Blogs from "./pages/Blogs";
+import Contact from "./pages/Contact";
 
 // import Header from './components/Header'
 
@@ -32,6 +34,8 @@ const App = () => {
             <Route path="products/mobile" element={<Mobile/>}/>
             <Route path="search" element={<Search/>}/>
             <Route path="shop" element={<Shop/>}/>
+            <Route path="blog" element={<Blogs/>}/>
+            <Route path="contact" element={<Contact/>}/>
           </Route>
           
           {/* Admin Routes */}

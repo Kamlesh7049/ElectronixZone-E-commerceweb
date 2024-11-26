@@ -51,7 +51,9 @@ const Header = () => {
               onChange={(e) => setSearchTerm(e.target.value)}
               className="search-input"
             />
+            <a href="#" onClick={()=>{navigate("/search")}}>
             <FaSearch className="search-icon-inside" size={20} color="black" />
+            </a>
           </div>
         </div>
         <div className="header-right">

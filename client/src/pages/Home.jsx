@@ -114,35 +114,35 @@ const Home = () => {
       <div className="main-container">
         <div className="main-container-box-1">
           <div className="main-box img1"></div>
-          <p>Laptop</p>
+          <h5>Laptop</h5>
         </div>
         <div className="main-container-box-1">
           <div className="main-box img2"></div>
-          <p>Laptop</p>
+          <h5>Mobile</h5>
         </div>
         <div className="main-container-box-1">
           <div className="main-box img3"></div>
 
-          <p>Laptop</p>
+          <h5>Desktop</h5>
         </div>
         <div className="main-container-box-1">
           <div className="main-box img3"></div>
 
-          <p>Laptop</p>
+          <p>Headphone</p>
         </div>
         <div className="main-container-box-1">
           <div className="main-box img3"></div>
 
-          <p>Laptop</p>
+          <p>Earburds</p>
         </div>
         <div className="main-container-box-1">
           <div className="main-box img3"></div>
 
-          <p>Laptop</p>
+          <p>Smartch Watch</p>
         </div>
      
       </div>
-
+        
       <div className="Shopbnr1">
         <img
           src={shop}

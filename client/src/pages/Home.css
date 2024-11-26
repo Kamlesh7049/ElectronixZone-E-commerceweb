@@ -87,7 +87,7 @@
   height: 150px;
   width: 150px;
   border-radius: 50%;
-  border: 8px solid red;
+  border: 2px solid red;
  
   transition: border-color 0.3s ease, transform 0.3s ease; /* Transition for both border and zoom */
 }
@@ -98,12 +98,12 @@
   transform: scale(0.9); /* Zoom out the image by 10% */
 }
 .img1{
-   background: url('../images/shopbnr2.jpg') no-repeat;
+   background: url('../images/leptop3.jpg') no-repeat;
   background-size: cover; /* Ensure the image covers the entire container */
   /* background-color: lightgray; */
 }
 .img2{
-   background: url('../images/shopbnr2.jpg') no-repeat;
+   background: url('../images/iphon1.jpg') no-repeat;
   background-size: cover; /* Ensure the image covers the entire container */
   /* background-color: lightgray; */
 }

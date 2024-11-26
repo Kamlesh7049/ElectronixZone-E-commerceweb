@@ -1,3 +1,4 @@
+import "../pages/ProductDeatil.css"
 import { useState,useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
@@ -30,13 +31,13 @@ const ProductDeatil = () => {
         {/* <h1> Welcom to Product Detail Page:{proid}</h1> */}
         <h1 align="center"> Product Detail</h1>
         <div id="proDetail">
-          <div>
+          <div id="proImage">
             <img src={mydata.image} width="300px" height="300px" />
           </div>
           <div id="proData">
             <h2>{mydata.name}</h2>
             <h5>Product Deatil:{mydata.description}</h5>
-            <h5>Price-{mydata.price}/-</h5>
+            <h5>Price:{mydata.price}/-</h5>
             <h6>{mydata.product}</h6>
             <Button
              onClick={()=>{addcardData(mydata._id, mydata.name, mydata.description, mydata.product, mydata.price, mydata.image)}}
