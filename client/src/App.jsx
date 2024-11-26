@@ -12,6 +12,7 @@ import Search from "./pages/Search";
 import Shop from "./pages/Shop";
 import Blogs from "./pages/Blogs";
 import Contact from "./pages/Contact";
+import Checkout from "./pages/Checkout";
 
 // import Header from './components/Header'
 
@@ -36,6 +37,7 @@ const App = () => {
             <Route path="shop" element={<Shop/>}/>
             <Route path="blog" element={<Blogs/>}/>
             <Route path="contact" element={<Contact/>}/>
+            <Route path="checkout" element={<Checkout/>}/>
           </Route>
           
           {/* Admin Routes */}

@@ -95,8 +95,8 @@ const InsertProduct = () => {
 
             <option value="">Select a product</option> 
             <option value="laptop">Laptop</option>
-            <option value="computer">Computer</option>
             <option value="mobile">Mobile</option>
+            <option value="computer">Computer</option>
             <option value="all">All</option>
           </Form.Select>
           <Form.Group className="mb-3" controlId="formBasicEmail">

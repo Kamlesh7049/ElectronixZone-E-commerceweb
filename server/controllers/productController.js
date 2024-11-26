@@ -40,11 +40,20 @@ const searchProduct=async(req,res)=>{
     res.send(Data);
 }
 
+const shopProduct=async(req,res)=>{
+    const {lprice,hprice,leptoppro,mobilepro,computerpro}=req.body;
+    console.log(lprice,hprice,leptoppro,mobilepro,computerpro);
+    
+    const Data= await ProductModel.find({$and:[{price:{$gte:lprice}}, {price:{$lte:hprice}}, {$or:[{"product":leptoppro}, {"product":mobilepro}, {"product":computerpro}]}   ]});
+    console.log(Data);
+    res.send(Data);
+}
 
 module.exports={
     productSave ,
     showProduct,
     productDetail,
     showOneProduct,
-    searchProduct
+    searchProduct,
+    shopProduct
 }

@@ -5,9 +5,19 @@ import { FaMinusCircle } from "react-icons/fa";
 
 import {qntyIncrement, qntyDecrement, dataRemove} from "../cardSlice";
 import { Button } from "antd";
+
+
+
+import { useNavigate } from "react-router-dom";
+
+
+
 const CardData=()=>{
     const myCard= useSelector((state)=>state.mycard.card);
     const dispatch= useDispatch();
+
+        const navigate= useNavigate();
+
 
 
     const qntyInc=(id)=>{
@@ -103,6 +113,21 @@ const CardData=()=>{
           <th> {totalAmount}/-</th>
           <th> </th>
           </tr>
+        
+        <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>
+            <button onClick={()=>{navigate("/checkout")}}>CheckOut</button>
+            </th>
+            <th></th>
+        </tr>
+
+
         </tbody>
         </Table>
 

@@ -31,6 +31,7 @@ const Home = () => {
   useEffect(() => {
     loadData();
   }, []);
+
   const addcardData = (id, name, desc, pro, price, image) => {
     dispatch(
       addToCard({
@@ -123,7 +124,7 @@ const Home = () => {
         <div className="main-container-box-1">
           <div className="main-box img3"></div>
 
-          <h5>Desktop</h5>
+          <h5>Computer</h5>
         </div>
         <div className="main-container-box-1">
           <div className="main-box img3"></div>
