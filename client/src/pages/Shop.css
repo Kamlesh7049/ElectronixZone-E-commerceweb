@@ -16,5 +16,10 @@
 #shopData
 {
     width: 80%;
-    margin-bottom: 0px;
+    border: 2px solid red;
+    /* margin-bottom: 0px; */
+}
+#cardData
+{
+    margin-bottom: 30px;
 }
