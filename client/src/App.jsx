@@ -43,6 +43,7 @@ const App = () => {
           {/* Admin Routes */}
           <Route path="/admin" element={<AdminDashboard />}>
             <Route path="insertpro" element={<InsertProduct />} />
+            <Route path="ahome" element={<Home/>}/>
           </Route>
         </Routes>
       </BrowserRouter>

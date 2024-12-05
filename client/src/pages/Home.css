@@ -73,9 +73,12 @@
 }
 .main-container {
   display: flex;
-  justify-content: space-between;
-  /* flex-wrap: wrap; */
-  width: 1000px;
+  /* justify-content: space-between; */
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 10px;
+  /* width: 1000px; */
+  width: 90%;
   margin: auto;
   padding-top: 20px;
   margin-bottom: 20px;
@@ -87,7 +90,7 @@
   height: 150px;
   width: 150px;
   border-radius: 50%;
-  border: 2px solid red;
+  border: 1px solid rgb(244, 140, 140);
  
   transition: border-color 0.3s ease, transform 0.3s ease; /* Transition for both border and zoom */
 }
@@ -108,15 +111,26 @@
   /* background-color: lightgray; */
 }
 .img3{
-   background: url('../images/shopbnr2.jpg') no-repeat;
+   background: url('../images/computer.jpg') no-repeat;
   background-size: cover; /* Ensure the image covers the entire container */
   /* background-color: lightgray; */
 }
 .img4{
-   background: url('../images/shopbnr2.jpg') no-repeat;
+   background: url('../images/headphone1.jpg') no-repeat;
   background-size: cover; /* Ensure the image covers the entire container */
   /* background-color: lightgray; */
 }
+.img5{
+  background: url('../images/earbuds1.webp') no-repeat;
+ background-size: cover; /* Ensure the image covers the entire container */
+ /* background-color: lightgray; */
+}
+.img6{
+  background: url('../images/smartwatch1.jpg') no-repeat;
+ background-size: cover; /* Ensure the image covers the entire container */
+ /* background-color: lightgray; */
+}
+
 
 .main-container-box-1{
 text-align: center;

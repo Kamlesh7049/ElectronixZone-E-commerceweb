@@ -65,7 +65,7 @@ const InsertProduct = () => {
   return (
     <>
       <center>
-        <h5>Welcome to Insert Product Page!</h5>
+        <h5 style={{marginBottom:'30px'}}> Insert Product Page</h5>
         <Form style={{ width: '300px' }} onSubmit={handleSubmit}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Enter Product name</Form.Label>

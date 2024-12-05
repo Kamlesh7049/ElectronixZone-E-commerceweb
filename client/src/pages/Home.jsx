@@ -127,20 +127,21 @@ const Home = () => {
           <h5>Computer</h5>
         </div>
         <div className="main-container-box-1">
-          <div className="main-box img3"></div>
+          <div className="main-box img4"></div>
 
           <p>Headphone</p>
         </div>
         <div className="main-container-box-1">
-          <div className="main-box img3"></div>
+          <div className="main-box img5"></div>
 
           <p>Earburds</p>
         </div>
         <div className="main-container-box-1">
-          <div className="main-box img3"></div>
+          <div className="main-box img6"></div>
 
           <p>Smartch Watch</p>
         </div>
+        
      
       </div>
         

@@ -73,7 +73,7 @@ const Cart = () => {
 
   return (
    <>
-   <h1 align ="center">Welcom Cart Pages!!</h1>
+   <h1 align ="center">Welcom Cart Pages</h1>
    
    <Table striped bordered hover>
       <thead>
@@ -103,6 +103,20 @@ const Cart = () => {
           <th> {totalAmount}/-</th>
           <th> </th>
           </tr>
+
+
+          <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>
+            <button onClick={()=>{navigate("/checkout")}} style={{background:"yellow", padding:"6px 12px", borderRadius:"10px"}}>Checkout</button>
+            </th>
+            <th></th>
+        </tr>
         </tbody>
         </Table>
 

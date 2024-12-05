@@ -122,7 +122,7 @@ const CardData=()=>{
             <th></th>
             <th></th>
             <th>
-            <button onClick={()=>{navigate("/checkout")}}>CheckOut</button>
+            <button onClick={()=>{navigate("/checkout")}} style={{background:"yellow", padding:"6px 12px", borderRadius:"10px"}}>Checkout</button>
             </th>
             <th></th>
         </tr>
