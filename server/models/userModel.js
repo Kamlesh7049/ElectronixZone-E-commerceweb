@@ -5,7 +5,7 @@ const userSchema=new mongoose.Schema({
     city: String,
     pin:Number,
     mobile: String,
-    product:String,
+    product:[],
     price:Number
 
 })

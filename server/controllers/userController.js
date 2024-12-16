@@ -3,6 +3,7 @@ const UserModel= require("../models/userModel");
 
 const customerSave=async(req, res)=>{
     const {name, address, city, pincode, mobile, proname, price}=req.body;
+    console.log(name, address, city, pincode, mobile, proname, price,"lkjhgcxzxcgbhjjkhg lkgjfhgf")
     await UserModel.create({
 
         name:name,
@@ -13,7 +14,8 @@ const customerSave=async(req, res)=>{
         product:proname,
         price:price
     })
-  res.send("User Created!!!");
+  res.send(name, address, city, pincode, mobile,proname, price);
+  
 }
 
 module.exports={
