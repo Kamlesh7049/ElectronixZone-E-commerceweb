@@ -48,11 +48,14 @@ const cardSlice=createSlice({
      },
      dataRemove:(state, actions)=>{
         state.card=state.card.filter(key=>key.id!=actions.payload);
-    }
+    },
+    removeFromCart: (state, action) => {
+        state.card = state.card.filter((item) => item.id !== action.payload);
+      },
 
 
 
     }
 })
-export const {addToCard,qntyIncrement,qntyDecrement,dataRemove}=cardSlice.actions;
+export const {addToCard,qntyIncrement,qntyDecrement,dataRemove,removeFromCart }=cardSlice.actions;
 export default cardSlice.reducer;

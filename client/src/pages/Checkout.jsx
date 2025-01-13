@@ -4,9 +4,9 @@ import Form from "react-bootstrap/Form";
 
 import { useSelector } from "react-redux";
 import Table from "react-bootstrap/Table";
-
+import { removeFromCart } from "../cardSlice";
 import { useState } from "react";
-
+import { useDispatch } from "react-redux";
 import axios from "axios";
 
 const Checkout = () => {
@@ -14,6 +14,13 @@ const Checkout = () => {
   const products = myCard?.map((data)=> {
     return data.name
   })
+
+
+  const dispatch= useDispatch();
+
+  const [isload , setIsload]=useState(false)
+
+
 
 
   const [input, setInput] = useState({});
@@ -24,7 +31,6 @@ const Checkout = () => {
     proname: [],
     price: "",
   });
-  console.log(mypro,"mypro")
   const initPay = (data) => {
     const options = {
       key: "rzp_test_PaZKuQKOFylYje",
@@ -35,9 +41,22 @@ const Checkout = () => {
       image: mypro.img,
       order_id: data.id,
       handler: async (response) => {
+        if (response.razorpay_payment_id) {
+          myCard.forEach((item) => {
+              console.log(item,"item")
+              dispatch(removeFromCart(item.id));
+            });
+            setInput({
+              name: "",
+              address: "",
+              city: "",
+              pincode: "",
+              mobile: "",
+            });
+        }
         try {
           const verifyURL = "https://localhost:9000/api/payment/verify";
-          const { data } = await axios.post(verifyURL, response);
+          const { data } = await axios.post(verifyURL, response);          
         } catch (error) {
           console.log(error);
         }
@@ -50,6 +69,10 @@ const Checkout = () => {
     rzp1.open();
   };
   const handlePay = async () => {
+
+    setIsload(true)
+
+
     await setMypro({
       creator: brand,
       img: proimg,
@@ -65,13 +88,15 @@ const Checkout = () => {
     } catch (error) {
       console.log(error);
     }
-
     const api = "http://localhost:9000/users/usersave";
     axios
       .post(api, { ...input, proname: mypro.proname, price: mypro.price })
       .then((res) => {
         console.log("Data Save!!");
+
+        
       });
+      setIsload(false)
   };
 
   const handleInput = (e) => {
@@ -110,7 +135,13 @@ const Checkout = () => {
     );
   });
 
+
+// if(isload){
+//   return <h1>Loading...</h1>
+// }
+
   return (
+
     <>
       <div id="payPage">
         <div id="payForm">
@@ -183,7 +214,11 @@ const Checkout = () => {
               </tr>
             </thead>
             <tbody>
-              {ans}
+
+              {/* {ans} */}
+              {isload ? <h1>Loading...</h1> : ans}
+
+
               <tr>
                 <th> </th>
                 <th> </th>

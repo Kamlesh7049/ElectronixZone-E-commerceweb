@@ -44,13 +44,13 @@ const AdminDashboard = () => {
         <button id="hamburgerMenu" onClick={toggleMenu} >
           ☰
         </button>
-        <h4> Welcome to Admin Dashboard</h4>
+        <h4 align="center"> Welcome to Admin Dashboard</h4>
       </div>
       <div id="adminContainer">
         {menuOpen && (
           <div id="adminMenu">
             <h4 className="menuTitle">Admin Menu</h4>
-            <Link to="ahome" className="menuLink">Home</Link>
+            <Link to="/" className="menuLink">Home</Link>
             <Link to="insertpro" className="menuLink">Insert Product</Link>
             <Link to="viewproducts" className="menuLink">View Products</Link>
             <Link to="manageusers" className="menuLink">Manage Users</Link>
