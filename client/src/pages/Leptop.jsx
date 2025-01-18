@@ -17,7 +17,7 @@ const Leptop = () => {
 
 
   const loadData=()=>{
-    let api = "http://localhost:9000/product/showoneproduct?product=laptop";
+    let api = "https://electronixzone-e-commerceweb.onrender.com/product/showoneproduct?product=laptop";
     axios.get(api).then((res)=>{
       setMydata(res.data);
       console.log

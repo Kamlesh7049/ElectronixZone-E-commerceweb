@@ -12,7 +12,7 @@ const ProductDeatil = () => {
     const dispatch = useDispatch();
 
     const loadData=()=>{
-      let api = "http://localhost:9000/product/productdetail";
+      let api = "https://electronixzone-e-commerceweb.onrender.com/product/productdetail";
       axios.post(api,{id:proid}).then((res)=>{
         setMydata(res.data);
       })

@@ -55,7 +55,7 @@ const Checkout = () => {
             });
         }
         try {
-          const verifyURL = "https://localhost:9000/api/payment/verify";
+          const verifyURL = "https://electronixzone-e-commerceweb.onrender.com/api/payment/verify";
           const { data } = await axios.post(verifyURL, response);          
         } catch (error) {
           console.log(error);
@@ -81,14 +81,14 @@ const Checkout = () => {
     });
 
     try {
-      const orderURL = "http://localhost:9000/api/payment/orders";
+      const orderURL = "https://electronixzone-e-commerceweb.onrender.com/api/payment/orders";
       const { data } = await axios.post(orderURL, { amount: mypro.price });
 
       initPay(data.data);
     } catch (error) {
       console.log(error);
     }
-    const api = "http://localhost:9000/users/usersave";
+    const api = "https://electronixzone-e-commerceweb.onrender.com/users/usersave";
     axios
       .post(api, { ...input, proname: mypro.proname, price: mypro.price })
       .then((res) => {

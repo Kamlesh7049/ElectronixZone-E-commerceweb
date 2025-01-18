@@ -22,7 +22,7 @@ const Shop = () => {
   };
 
   const handleSubmit = () => {
-    let api = "http://localhost:9000/product/shopproduct";
+    let api = "https://electronixzone-e-commerceweb.onrender.com/product/shopproduct";
     axios.post(api, input).then((res) => {
       setMydata(res.data);
       console.log(res.data);

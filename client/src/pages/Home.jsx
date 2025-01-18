@@ -21,7 +21,7 @@ const Home = () => {
   const navigate = useNavigate();
 
   const loadData = () => {
-    let api = "http://localhost:9000/product/showproduct";
+    let api = "https://electronixzone-e-commerceweb.onrender.com/product/showproduct";
     axios.get(api).then((res) => {
       setMydata(res.data);
       console.log(res.data);

@@ -41,7 +41,7 @@ const InsertProduct = () => {
       const productData = { ...input, image: imageResponse.data.url };
 
       // Send the product data to your API endpoint
-      const api1 = 'http://localhost:9000/product/productsave';
+      const api1 = 'https://electronixzone-e-commerceweb.onrender.com/product/productsave';
       await axios.post(api1, productData);
 
       message.success('Product saved successfully!');

@@ -23,7 +23,7 @@ const Header = () => {
   const cardLength = CardData.length;
 
   const handleSubmit = () => {
-    const api = "http://localhost:9000/adminuser/usercheck";
+    const api = "https://electronixzone-e-commerceweb.onrender.com/adminuser/usercheck";
     axios.post(api, { user: username, password: password })
       .then((res) => {
         if (res.status === 200) {
