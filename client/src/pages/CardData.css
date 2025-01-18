@@ -1,0 +1,103 @@
+.card-table-container {
+    margin: 40px;
+    background-color: #f7f7f7;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-table-container h1 {
+    font-size: 30px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .card-table-container .table th,
+  .card-table-container .table td {
+    text-align: center;
+    padding: 15px;
+    font-size: 16px;
+    color: #555;
+  }
+  
+  .card-table-container .table th {
+    background-color: #f8f8f8;
+    color: #333;
+  }
+  
+  .card-table-container .table td {
+    background-color: #fff;
+  }
+  
+  .card-table-container .table img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .card-table-container .quantity-btn {
+    color: #3399cc;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  
+  .card-table-container .quantity-btn:hover {
+    color: #2977b5;
+  }
+  
+  .card-table-container .quantity-text {
+    font-weight: bold;
+    cursor: pointer;
+    margin: 0 10px;
+  }
+  
+  .card-table-container .remove-btn {
+    background-color: #ff6666;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .card-table-container .remove-btn:hover {
+    background-color: #cc4c4c;
+  }
+  
+  .card-table-container .checkout-btn {
+    background-color: #3399cc;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .card-table-container .checkout-btn:hover {
+    background-color: #2977b5;
+  }
+  
+  @media (max-width: 768px) {
+    .card-table-container {
+      margin: 20px;
+    }
+  
+    .card-table-container .table th, 
+    .card-table-container .table td {
+      padding: 10px;
+      font-size: 14px;
+    }
+  
+    .card-table-container .table img {
+      width: 60px;
+      height: 60px;
+    }
+  
+    .card-table-container .checkout-btn {
+      width: 100%;
+    }
+  }
+  
