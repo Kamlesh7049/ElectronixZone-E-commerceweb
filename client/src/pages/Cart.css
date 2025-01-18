@@ -1,0 +1,91 @@
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Cart Page Styling */
+  .cart-table {
+    padding: 20px;
+    margin: 20px;
+  }
+  
+  /* Table Styling */
+  .table th, .table td {
+    text-align: center;
+    vertical-align: middle;
+    padding: 12px;
+  }
+  
+  .table img {
+    border-radius: 8px;
+  }
+  
+  .table th {
+    background-color: #f8f9fa;
+    color: #495057;
+  }
+  
+  .table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f8f9fa;
+  }
+  
+  .table-bordered {
+    border: 2px solid #ddd;
+  }
+  
+  /* Quantity Section */
+  table td a {
+    color: #007bff;
+    font-size: 20px;
+    text-decoration: none;
+  }
+  
+  table td a:hover {
+    color: #0056b3;
+  }
+  
+  /* Button Styling */
+  button.checkout-btn {
+    background-color: #ffcc00;
+    color: #000;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  button.checkout-btn:hover {
+    background-color: #ffb700;
+  }
+  
+  /* Responsive Design */
+  @media screen and (max-width: 768px) {
+    .cart-table {
+      padding: 10px;
+    }
+  
+    .table th, .table td {
+      padding: 8px;
+      font-size: 14px;
+    }
+  
+    .checkout-btn {
+      width: 100%;
+      font-size: 18px;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .table th, .table td {
+      padding: 6px;
+      font-size: 12px;
+    }
+  
+    .checkout-btn {
+      font-size: 16px;
+    }
+  }
+  

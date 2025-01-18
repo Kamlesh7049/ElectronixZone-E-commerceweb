@@ -1,25 +1,85 @@
-.shoppage
-{
+/* General Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    padding: 0;
+  }
+  
+  /* Shop Page Container */
+  .shoppage {
     display: flex;
     justify-content: space-between;
-
-}
-#shopmenu 
-{
+    gap: 20px;
+    padding: 20px;
+    flex-wrap: wrap;
+  }
+  
+  /* Filter Section (Left Side) */
+  #shopmenu {
     width: 20%;
     padding: 30px;
-    border: 2px solid black;
+    border: 2px solid #ddd;
     margin-bottom: 20px;
-
-    
-}
-#shopData
-{
-    width: 80%;
-    /* border: 2px solid red; */
-    /* margin-bottom: 0px; */
-}
-#cardData
-{
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  #shopmenu h5 {
+    margin-bottom: 15px;
+    color: #495057;
+  }
+  
+  /* Product Data Section (Right Side) */
+  #shopData {
+    width: 75%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center products */
+    gap: 20px; /* Create gaps between product cards */
+    padding: 10px;
+  }
+  
+  /* Card Style */
+  .card {
+    width: 100%;
+    max-width: 18rem;
     margin-bottom: 20px;
-}
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out; /* Add transition for hover effect */
+  }
+  
+  .card:hover {
+    transform: scale(1.05); /* Slightly enlarge the card on hover */
+  }
+  
+  /* Responsive Design for Smaller Screens */
+  @media screen and (max-width: 768px) {
+    #shopmenu {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  
+    #shopData {
+      width: 100%;
+    }
+  
+    .shoppage {
+      flex-direction: column;
+    }
+  }
+  
+  /* For very small screens (e.g., mobile devices) */
+  @media screen and (max-width: 480px) {
+    #shopmenu {
+      padding: 20px;
+    }
+  
+    .card {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+  

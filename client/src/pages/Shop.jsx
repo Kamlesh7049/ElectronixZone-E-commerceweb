@@ -1,8 +1,7 @@
 import "../pages/Shop.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
-
 import Card from "react-bootstrap/Card";
 import { useDispatch } from "react-redux";
 import { addToCard } from "../cardSlice";
@@ -26,7 +25,6 @@ const Shop = () => {
     axios.post(api, input).then((res) => {
       setMydata(res.data);
       console.log(res.data);
-      
     });
   };
 
@@ -94,12 +92,14 @@ const Shop = () => {
       </>
     );
   });
+
   return (
     <>
-      <h1 align="center">Your Shopping Place</h1>
+      <h1 align="center">Find the Best Deals Here!</h1>
       <div className="shoppage">
+        {/* Filter Section */}
         <div id="shopmenu">
-          <h5>Set Your Pattern</h5>
+          <h5>Filter Products</h5>
           Low Price :{" "}
           <input
             type="number"
@@ -107,7 +107,8 @@ const Shop = () => {
             value={input.lprice}
             onChange={handleInput}
           />
-          <br /><br />
+          <br />
+          <br />
           High Price :{" "}
           <input
             type="number"
@@ -124,7 +125,8 @@ const Shop = () => {
           />{" "}
           Leptop
           <br />
-          <input type="checkbox"
+          <input
+            type="checkbox"
             value="mobile"
             name="mobilepro"
             onChange={handleInput}
@@ -144,6 +146,7 @@ const Shop = () => {
           </Button>
         </div>
 
+        {/* Product Section */}
         <div id="shopData">
           <div id="cardData">{ans}</div>
         </div>

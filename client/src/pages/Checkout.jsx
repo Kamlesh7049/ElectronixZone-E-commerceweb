@@ -1,7 +1,6 @@
 import "../pages/Checkout.css";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-
 import { useSelector } from "react-redux";
 import Table from "react-bootstrap/Table";
 import { removeFromCart } from "../cardSlice";
@@ -11,18 +10,12 @@ import axios from "axios";
 
 const Checkout = () => {
   const myCard = useSelector((state) => state.mycard.card);
-  const products = myCard?.map((data)=> {
-    return data.name
-  })
+  const products = myCard?.map((data) => {
+    return data.name;
+  });
 
-
-  const dispatch= useDispatch();
-
-  const [isload , setIsload]=useState(false)
-
-
-
-
+  const dispatch = useDispatch();
+  const [isload, setIsload] = useState(false);
   const [input, setInput] = useState({});
   const [mypro, setMypro] = useState({
     name: "",
@@ -31,6 +24,7 @@ const Checkout = () => {
     proname: [],
     price: "",
   });
+
   const initPay = (data) => {
     const options = {
       key: "rzp_test_PaZKuQKOFylYje",
@@ -43,16 +37,15 @@ const Checkout = () => {
       handler: async (response) => {
         if (response.razorpay_payment_id) {
           myCard.forEach((item) => {
-              console.log(item,"item")
-              dispatch(removeFromCart(item.id));
-            });
-            setInput({
-              name: "",
-              address: "",
-              city: "",
-              pincode: "",
-              mobile: "",
-            });
+            dispatch(removeFromCart(item.id));
+          });
+          setInput({
+            name: "",
+            address: "",
+            city: "",
+            pincode: "",
+            mobile: "",
+          });
         }
         try {
           const verifyURL = "https://electronixzone-e-commerceweb.onrender.com/api/payment/verify";
@@ -68,11 +61,9 @@ const Checkout = () => {
     const rzp1 = new window.Razorpay(options);
     rzp1.open();
   };
+
   const handlePay = async () => {
-
-    setIsload(true)
-
-
+    setIsload(true);
     await setMypro({
       creator: brand,
       img: proimg,
@@ -88,15 +79,14 @@ const Checkout = () => {
     } catch (error) {
       console.log(error);
     }
+
     const api = "https://electronixzone-e-commerceweb.onrender.com/users/usersave";
     axios
       .post(api, { ...input, proname: mypro.proname, price: mypro.price })
       .then((res) => {
-        console.log("Data Save!!");
-
-        
+        console.log("Data Saved!!");
       });
-      setIsload(false)
+    setIsload(false);
   };
 
   const handleInput = (e) => {
@@ -107,44 +97,34 @@ const Checkout = () => {
 
   let sno = 0;
   let totalAmount = 0;
-
   let proname = " ";
   let brand = "Testing";
   let proimg = " ";
 
   const ans = myCard.map((key) => {
-
     totalAmount += key.price * key.qnty;
     sno++;
     return (
-      <>
-        <tr>
-          <td>{sno} </td>
-          <td>
-            <img src={key.image} width="100" height="100" />{" "}
-          </td>
-          <td> {key.name} </td>
-          <td> {key.description} </td>
-          <td> {key.product} </td>
-          <td> {key.price}</td>
-          <td>{key.qnty}</td>
-          <td>{key.price * key.qnty}</td>
-          <td></td>
-        </tr>
-      </>
+      <tr key={key.id}>
+        <td>{sno} </td>
+        <td>
+          <img src={key.image} width="100" height="100" alt={key.name} />
+        </td>
+        <td> {key.name} </td>
+        <td> {key.description} </td>
+        <td> {key.product} </td>
+        <td> ₹{key.price}</td>
+        <td>{key.qnty}</td>
+        <td> ₹{key.price * key.qnty}</td>
+        <td></td>
+      </tr>
     );
   });
 
-
-// if(isload){
-//   return <h1>Loading...</h1>
-// }
-
   return (
-
     <>
-      <div id="payPage">
-        <div id="payForm">
+      <div id="checkoutPage">
+        <div id="checkoutForm">
           <h4 align="center">Fill Your Shipping Address</h4>
           <Form style={{ width: "90%" }}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -198,46 +178,26 @@ const Checkout = () => {
           </Form>
         </div>
 
-        <div id="payMethod">
-          <Table striped bordered hover>
+        <div id="checkoutTable">
+          <Table striped bordered hover responsive>
             <thead>
               <tr>
-                <th> S.No.</th>
-                <th> </th>
+                <th>S.No.</th>
+                <th>Image</th>
                 <th>Name</th>
                 <th>Description</th>
                 <th>Product</th>
-                <th> Price </th>
-                <th> Quantity</th>
-                <th> Total Price</th>
-                <th> </th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total Price</th>
               </tr>
             </thead>
             <tbody>
-
-              {/* {ans} */}
-              {isload ? <h1>Loading...</h1> : ans}
-
-
+              {isload ? <tr><td colSpan="8">Loading...</td></tr> : ans}
               <tr>
-                <th> </th>
-                <th> </th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th> </th>
-                <th> Net Amount</th>
-                <th> {totalAmount}</th>
-              </tr>
-              <tr>
-                <th> </th>
-                <th> </th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th> </th>
-                <th></th>
-                <th> </th>
+                <th colSpan="6"></th>
+                <th>Net Amount</th>
+                <th> ₹{totalAmount}</th>
               </tr>
             </tbody>
           </Table>
@@ -248,13 +208,3 @@ const Checkout = () => {
 };
 
 export default Checkout;
-
-
-
-
-
-
-
-
-
-

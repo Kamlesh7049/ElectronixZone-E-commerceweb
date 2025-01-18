@@ -1,16 +1,94 @@
-#payPage
-{
+#checkoutPage {
     display: flex;
     justify-content: space-between;
-    padding: 50px;
-}
-
-#payForm
-{
-    width: 50%;
-}
-
-#payMethod
-{
-    width: 50%;
-}
+    padding: 40px;
+    background-color: #f7f7f7;
+    min-height: 100vh;
+  }
+  
+  #checkoutForm {
+    flex: 1;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-right: 20px;
+  }
+  
+  #checkoutForm h4 {
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .form-control {
+    border-radius: 4px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    margin-bottom: 15px;
+  }
+  
+  .form-control:focus {
+    border-color: #3399cc;
+    box-shadow: 0 0 8px rgba(51, 153, 204, 0.6);
+  }
+  
+  button {
+    background-color: #3399cc;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    width: 100%;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  button:hover {
+    background-color: #2977b5;
+  }
+  
+  #checkoutTable {
+    flex: 2;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  #checkoutTable .table th, #checkoutTable .table td {
+    text-align: center;
+    padding: 12px;
+  }
+  
+  #checkoutTable .table th {
+    background-color: #f8f8f8;
+    color: #555;
+  }
+  
+  #checkoutTable .table td {
+    color: #333;
+  }
+  
+  #checkoutTable .table img {
+    max-width: 60px;
+    max-height: 60px;
+    object-fit: cover;
+  }
+  
+  @media (max-width: 768px) {
+    #checkoutPage {
+      flex-direction: column;
+    }
+  
+    #checkoutForm {
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
+  
+    #checkoutTable {
+      margin-top: 20px;
+    }
+  }
+  

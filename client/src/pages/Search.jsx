@@ -1,83 +1,104 @@
-
 import { useState } from "react";
 import axios from "axios";
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import { useDispatch } from 'react-redux';
-import { addToCard } from '../cardSlice';
-import { useNavigate } from 'react-router-dom';
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+import { useDispatch } from "react-redux";
+import { addToCard } from "../cardSlice";
+import { useNavigate } from "react-router-dom";
+import "./Search.css"; // Custom styles for responsiveness
 
 const Search = () => {
-  const [mypro,setMyPro]=useState("");
-  const [mydata,setMydata]=useState([]);
-  const dispatch=useDispatch();
-  const navigate=useNavigate();
+  const [myPro, setMyPro] = useState("");
+  const [myData, setMyData] = useState([]);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
- const handleChange=(e)=>{
-  setMyPro(e.target.value);
-  let api = `https://electronixzone-e-commerceweb.onrender.com/product/searchproduct/?product=${mypro}`;
-  axios.get(api).then((res) => {
-    setMydata(res.data);
-    console.log(res.data);
-  })
+  const handleChange = (e) => {
+    setMyPro(e.target.value);
+    if (e.target.value.length > 2) {
+      let api = `https://electronixzone-e-commerceweb.onrender.com/product/searchproduct/?product=${e.target.value}`;
+      axios.get(api).then((res) => {
+        setMyData(res.data);
+        console.log(res.data);
+      });
+    } else {
+      setMyData([]);
+    }
+  };
 
- }
- const addcardData = (id, name, desc, pro, price, image) => {
-  dispatch(
-    addToCard({
-      id: id,
-      name: name,
-      description: desc,
-      product: pro,
-      price: price,
-      image: image,
-      qnty: 1,
-    })
+  const addCardData = (id, name, desc, pro, price, image) => {
+    dispatch(
+      addToCard({
+        id: id,
+        name: name,
+        description: desc,
+        product: pro,
+        price: price,
+        image: image,
+        qnty: 1,
+      })
+    );
+  };
+
+  const productCards = myData.map((product) => (
+    <Card className="product-card" key={product._id}>
+      <a
+        href="#"
+        onClick={() => {
+          navigate(`/prodetail/${product._id}`);
+        }}
+      >
+        <Card.Img
+          variant="top"
+          src={product.image}
+          alt={product.name}
+          className="product-image"
+        />
+      </a>
+      <Card.Body>
+        <Card.Title className="product-title">{product.name}</Card.Title>
+        <Card.Text className="product-description">
+          {product.description}
+          <br />
+          {product.product}
+          <br />
+          <span className="product-price">Price: ₹{product.price}/-</span>
+        </Card.Text>
+        <Button
+          variant="primary"
+          className="add-to-cart-btn"
+          onClick={() =>
+            addCardData(
+              product._id,
+              product.name,
+              product.description,
+              product.product,
+              product.price,
+              product.image
+            )
+          }
+        >
+          Add to Cart
+        </Button>
+      </Card.Body>
+    </Card>
+  ));
+
+  return (
+    <>
+      <div className="search-container">
+        <h1 className="search-title">Search Products</h1>
+        <input
+          type="text"
+          placeholder="Enter product name..."
+          className="search-input"
+          value={myPro}
+          onChange={handleChange}
+        />
+      </div>
+      <div className="product-grid">{productCards}</div>
+    </>
   );
 };
-
-const ans = mydata.map((key) => {
-  return (
-    <>
-      <Card style={{ width: '18rem', marginTop:'20px' ,marginBottom:"20px"}}>
-        <a href="#" onClick={()=>{navigate(`/prodetail/${key._id}`)}}>
-        <Card.Img variant="top" src={key.image} style={{height:'300px'}} />
-        </a>
-    <Card.Body>
-      <Card.Title>{key.name}</Card.Title>
-      <Card.Text>
-        {key.description}
-        <br/>
-        {key.product}
-        <br/>
-       <span style={{color:'red', fontWeight:'bold'}}> Price :Rs {key.price}/- </span> 
-      </Card.Text>
-      <Button variant="primary"
-       onClick={()=>{addcardData(key._id, key.name, key.description, key.product, key.price, key.image)}}
-      >Add to Cart</Button>
-    </Card.Body>
-  </Card>
-
-    </>
-    );
-  })
-
-
-
-  return (
-    <>
-    <center> 
-    <h1 align="center">Search Product</h1>
-    Enter Product Name :<input type="text" 
-    value={mypro} onChange={handleChange}/>
-    </center>
-    <hr />
-    <div
-     id="cardData">
-     {ans}
-   </div>
-    </>
-  )
-}
 
 export default Search;
