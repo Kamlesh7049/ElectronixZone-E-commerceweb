@@ -13,6 +13,9 @@ import Shop from "./pages/Shop";
 import Blogs from "./pages/Blogs";
 import Contact from "./pages/Contact";
 import Checkout from "./pages/Checkout";
+import ViewProducts from "./admin/ViewProducts";
+import ManageUsers from "./admin/ManageUsers";
+import ViewOrders from "./admin/ViewOrders";
 
 // import Header from './components/Header'
 
@@ -44,6 +47,9 @@ const App = () => {
           <Route path="/admin" element={<AdminDashboard />}>
             <Route path="insertpro" element={<InsertProduct />} />
             <Route path="ahome" element={<Home/>}/>
+            <Route path="viewpro" element={<ViewProducts/>}/> 
+            <Route path="manusers" element={<ManageUsers/>}/>
+            <Route path="orders" element={<ViewOrders/>}/>
           </Route>
         </Routes>
       </BrowserRouter>
